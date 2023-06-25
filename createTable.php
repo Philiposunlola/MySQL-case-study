@@ -1,19 +1,19 @@
 <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "myDB";
+   $servername = "localhost";
+   $username = "root";
+   $password = "password";
+   $dbname = "myDB";
 
     // Create connection
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
+   $conn = mysqli_connect($servername, $username, $password, $dbname);
 
     // Check connection
-    if (!$conn) {
+   if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     }
 
     // SQL to create table
-    $sql = "CREATE TABLE MyGuests (
+   $sql = "CREATE TABLE MyGuests (
         id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY
         firstname VARCHAR(30) NOT NULL
         lastname VARCHAR(30) NOT NULL
@@ -27,6 +27,6 @@
         echo "Error creating table: " . mysqli_error($conn);
      }
 
-     mysqli_close($conn);
+   mysqli_close($conn);
 
 ?>
