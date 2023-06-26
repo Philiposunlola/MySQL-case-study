@@ -13,8 +13,12 @@
 
     $sql = "INSERT INTO Visitors (firstname, lastname, email)
     VALUES ('Philip', 'Osunlola', 'philiposun@gmail.com')";
-
-    if ($conn->query($sql) === TRUE) {
+    $sql .= "INSERT INTO companies (firstname, lastname, email)
+    VALUES ('Nicholas', 'Osunlola', 'Nicholasosun@gmail.com')";
+    $sql .= "INSERT INTO companies (firstname, lastname, email)
+    VALUES ('John', 'Osunlola', 'Johnosun@gmail.com')";
+    
+    if ($conn->multi_query($sql) === TRUE) {
         echo "New record created succcessfully";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;

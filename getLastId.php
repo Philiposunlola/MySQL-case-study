@@ -15,6 +15,7 @@
     VALUES ('Philip', 'Osunlola', 'philiposun@gmail.com')";
 
     if ($conn->query($sql) === TRUE) {
+        $last_id = $conn->insert_id;
         echo "New record created succcessfully";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
