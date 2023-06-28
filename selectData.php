@@ -1,27 +1,39 @@
 <?php
-    $servername = "localhost";
-    $username = "Philip Osunlola";
-    $password = "YES";
-    $dbname = "dbname";
+// Database credentials
+$host = "localhost";
+$dbname = "Students";
+$username = "philip osunlola";
+$password = "YES";
 
-    // Create   connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+// Create a new MySQLi instance
+$mysqli = new mysqli($host, $username, $password, $dbname);
 
-    $sql = "SELECT id, firstname, lastname FROM Visitors";
-    $result = mysqli_query($conn, $sql);
+// Check for connection errors
+if ($mysqli->connect_errno) {
+    echo "Failed to connect to MySQL: " . $mysqli->connect_error;
+    exit();
+}
 
-    if (mysqli_num_rows($result) > 0) {
-        // output data of each row
-        while ($row = mysqli_fetch_assoc($result) ) {
-            echo "id: ". $row["id"]. " - Name: ". $row["firstname"]. " " . $row["lastname"] . "<br>";
-        } 
-    } else {
-        echo "0 results";
-    }
+// SQL query to fetch data from the visitors table
+$sql = "SELECT id, firstname, lastname FROM visitors";
 
-    mysqli_close($conn);
+// Execute the query
+$result = $mysqli->query($sql);
+
+// Check for query execution errors
+if (!$result) {
+    echo "Error: " . $mysqli->error;
+    exit();
+}
+
+// Fetch and display the data
+while ($row = $result->fetch_assoc()) {
+    echo "ID: " . $row['id'] . "<br>";
+    echo "First Name: " . $row['firstname'] . "<br>";
+    echo "Last Name: " . $row['lastname'] . "<br><br>";
+}
+
+// Close the result and database connection
+$result->close();
+$mysqli->close();
 ?>
