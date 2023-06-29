@@ -18,7 +18,6 @@
         firstname VARCHAR(30) NOT NULL
         lastname VARCHAR(30) NOT NULL
         email VARCHAR(50)
-        reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
      )";
 
      if (mysqli_query($conn, $sql)) {
