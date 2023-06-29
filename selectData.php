@@ -1,39 +1,51 @@
 <?php
-// Database credentials
-$host = "localhost";
-$username = "Philip Osunlola";
-$password = "YES";
-$dbname = "studydb";
+    // Database credentials
+    $host = "localhost";
+    $dbname = "studybd";
+    $username = "root";
+    $password = "";
 
-// Create a new MySQLi instance
-$mysqli = new mysqli($host, $username, $password, $dbname);
+    // Create a new MySQLi instance
+    $mysqli = new mysqli($host, $username, $password, $dbname);
 
-// Check for connection errors
-if ($mysqli->connect_errno) {
-    echo "Failed to connect to MySQL: " . $mysqli->connect_error;
-    exit();
-}
+    // Check for connection errors
+    if ($mysqli->connect_errno) {
+        echo "Failed to connect to MySQL: " . $mysqli->connect_error;
+        exit();
+    }
 
-// SQL query to fetch data from the visitors table
-$sql = "SELECT id, firstname, lastname FROM visitors";
+    // SQL query to fetch data from the visitors table
+    $sql = "SELECT * FROM visitors";
 
-// Execute the query
-$result = $mysqli->query($sql);
+    // Execute the query
+    $result = $mysqli->query($sql);
 
-// Check for query execution errors
-if (!$result) {
-    echo "Error: " . $mysqli->error;
-    exit();
-}
+    // Check if there are any records found
+    if ($result->num_rows > 0) {
+        // Display the data in a table
+        echo "<table border = '1px'>;
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                </tr>";
 
-// Fetch and display the data
-while ($row = $result->fetch_assoc()) {
-    echo "ID: " . $row['id'] . "<br>";
-    echo "First Name: " . $row['firstname'] . "<br>";
-    echo "Last Name: " . $row['lastname'] . "<br><br>";
-}
+        // Fetch and display each row of data
+        while ($row = $result->fetch_assoc()) {
+            echo "<tr>
+                    <td>" . $row["id"] . "</td>
+                    <td>" . $row["firsName"] . "</td>
+                    <td>" . $row["lastame"] . "</td>
+                    <td>" . $row["email"] . "</td>
+                </tr>";
+        }
 
-// Close the result and database connection
-$result->close();
-$mysqli->close();
+        echo "</table>";
+    } else {
+        echo "No visitors found.";
+    }
+
+    // Close the database connection
+    $mysqli->close();
 ?>
