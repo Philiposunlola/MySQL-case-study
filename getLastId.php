@@ -11,7 +11,7 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $sql = "INSERT INTO Visitors (firstName, lastName, email)
+    $sql = "INSERT INTO visitors (firstName, lastName, email)
     VALUES ('Philip', 'Osunlola', 'philiposun@gmail.com')";
 
     if ($conn->query($sql) === TRUE) {
