@@ -11,7 +11,7 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $sql = "SELECT id, firstName, lastName, email FROM visitors WHERE lastName='Osunlola'";
+    $sql = "SELECT id, firstName, lastName, email FROM visitors WHERE lastName ='Osunlola'";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
