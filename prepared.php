@@ -12,7 +12,7 @@
     }
 
     // prepare and bind
-    $stmt = $conn->prepare("INSERT INTO Visitors (firstName, lastName, email) VALUES (?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO visitors (firstName, lastName, email) VALUES (?, ?, ?)");
     $smtm->bind_param("sss", $firstname, $lastname, $email);
 
     // set parameters and execute
