@@ -1,8 +1,8 @@
 <?php
     $servername = "localhost";
-    $username = "username";
-    $password = "password";
-    $dbname = "dbname";
+    $username = "Philip Osunlola";
+    $password = "";
+    $dbname = "studydb";
 
     // Create   connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -11,7 +11,7 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $sql = "INSERT INTO Visitors (firstname, lastname, email)
+    $sql = "INSERT INTO Visitors (firstName, lastName, email)
     VALUES ('Philip', 'Osunlola', 'philiposun@gmail.com')";
 
     if ($conn->query($sql) === TRUE) {

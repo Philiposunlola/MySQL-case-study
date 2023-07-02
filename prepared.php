@@ -1,8 +1,8 @@
 <?php
     $servername = "localhost";
-    $username = "username";
-    $password = "password";
-    $dbname = "dbname";
+    $username = "Philip Osunlola";
+    $password = "";
+    $dbname = "studydb";
 
     // Create   connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -12,7 +12,7 @@
     }
 
     // prepare and bind
-    $stmt = $conn->prepare("INSERT INTO Visitors (firstname, lastname, email) VALUES (?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO Visitors (firstName, lastName, email) VALUES (?, ?, ?)");
     $smtm->bind_param("sss", $firstname, $lastname, $email);
 
     // set parameters and execute

@@ -1,9 +1,9 @@
 <?php
     // Database credentials
-    $host = "localhost";
-    $dbname = "studybd";
-    $username = "root";
+    $servername = "localhost";
+    $username = "Philip Osunlola";
     $password = "";
+    $dbname = "studydb";
 
     // Create a new MySQLi instance
     $mysqli = new mysqli($host, $username, $password, $dbname);
